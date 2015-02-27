@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>calculat demo</title>
+
+<!-- <script src="https://code.jquery.com/jquery-1.10.2.js"></script> -->
+<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+</head>
+<body>
+<p><a class="display">0<a></p>
+<button id ="button" value="." class="calculate_button">[ .]</button>
+<button id ="button" value="0" class="calculate_button">[ 0]</button>
+<button id ="button" value="1" class="calculate_button">[ 1]</button>
+<button id ="button" value="2" class="calculate_button">[ 2]</button>
+<button id ="button" value="3" class="calculate_button">[ 3]</button>
+<button id ="button" value="4" class="calculate_button">[ 4]</button>
+<button id ="button" value="5" class="calculate_button">[ 5]</button>
+<button id ="button" value="6" class="calculate_button">[ 6]</button>
+<button id ="button" value="7" class="calculate_button">[ 7]</button>
+<button id ="button" value="8" class="calculate_button">[ 8]</button>
+<button id ="button" value="9" class="calculate_button">[ 9]</button>
+<button id ="button" value="+" class="calculate_button">[ +]</button>
+<button id ="button" value="-" class="calculate_button">[ -]</button>
+<button id ="button" value="/" class="calculate_button">[ /]</button>
+<button id ="button" value="*" class="calculate_button">[ *]</button>
+<button id ="button" value="=" class="calculate_button">[ =]</button>
+<button id ="button" value="c" class="calculate_button">[ C]</button>
+<script>
+
+$( ".calculate_button" ).on("click", function() { 
+    input_character=$(this).attr("value"),
+    $(".display").load("/test/ajax/?input_character=" + encodeURIComponent(input_character));
+});
+
+</script>
+
+</body>
+</html>

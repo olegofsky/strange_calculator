@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>calculat demo</title>
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+<p><a class="display"><a></p>
+
+<button id ="button" value="1" class="calculate_button">[ 1]</button>
+<button id ="button" value="2" class="calculate_button">[ 2]</button>
+<button id ="button" value="3" class="calculate_button">[ 3]</button>
+<button id ="button" value="4" class="calculate_button">[ 4]</button>
+<button id ="button" value="5" class="calculate_button">[ 5]</button>
+<button id ="button" value="6" class="calculate_button">[ 6]</button>
+<button id ="button" value="7" class="calculate_button">[ 7]</button>
+<button id ="button" value="8" class="calculate_button">[ 8]</button>
+<button id ="button" value="9" class="calculate_button">[ 9]</button>
+<button id ="button" value="0" class="calculate_button">[ 0]</button>
+
+<script>
+
+$( ".calculate_button" ).click(function() {
+    $(".display").load("google.coom", 
+        ($(this).attr("value"))
+    );
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+Django==1.7.1
+argparse==1.2.1
+django-redis==3.8.2
+ipython==2.4.1
+redis==2.10.3
+wsgiref==0.1.2
