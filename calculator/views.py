@@ -33,7 +33,7 @@ def process_operator(oper):
         if not b:
             cache.set("oper", oper)
             return a
-        elif a and b:
+        elif a:
             a = arithmetic_operations(a, b, stored_operator)
             cache.set("a", a)
             cache.set("oper", oper)
@@ -41,11 +41,8 @@ def process_operator(oper):
             return a
     else:
         if a:
-            if a.endswith(".") or a in "-":
+            if a.endswith(".") or a == "-":
                 return a
-            elif a in "-" and a not in oper:
-                cache.delete("a")
-                return "0"
             else:
                 cache.set("oper", oper)
                 return a
@@ -53,7 +50,9 @@ def process_operator(oper):
             if oper in "-":
                 cache.set("a", oper)
                 return oper
-            return "0"
+            else:
+                cache.set("a", "0")
+                return "0"
 
 
 # def process_digit(digit):
@@ -111,16 +110,23 @@ def process_digit(digit):
 
 
 def process_command(command):
-    if command in "c":
+    if command == "c":
         cache.clear()
         return "0"
-    elif command in "=":
+    elif command == "=":
         a = cache.get("a")
         b = cache.get("b")
         stored_operator = cache.get("oper")
-        a = arithmetic_operations(a, b, stored_operator)
-        cache.set("a", a)
-        return a
+        if not a:
+            return "0"
+        elif not b:
+            return a
+        elif b.replace("0", "") == ".":
+            return "Infinity"
+        else:
+            a = arithmetic_operations(a, b, stored_operator)
+            cache.set("a", a)
+            return a
 
 
 def ajax(request):
