@@ -15,6 +15,7 @@ class WidgetTestCase(TestCase):
         self.assertEqual(arithmetic_operations("0.0010", "2", "+"), "2.001")
         self.assertEqual(arithmetic_operations("0.5", "2", "-"), "-1.5")
         self.assertEqual(arithmetic_operations("0.5", "2", "/"), "0.25")
+        self.assertEqual(arithmetic_operations("1", "0", "/"), "Error")
 
     def test_process_command_equal(self):
         cache.set("oper", "+")

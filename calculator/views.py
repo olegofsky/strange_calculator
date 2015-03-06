@@ -18,11 +18,12 @@ def main(request):
 def arithmetic_operations(x, y, oper):
     str_x = "Decimal(\"%s\")" % x
     str_y = "Decimal(\"%s\")" % y
-    result = eval(" ".join([str_x, oper, str_y]))
-    result = result.to_eng_string()
-    while "." in result and result.endswith("0") or result.endswith("."):
-        result = result[0:-1]
-    return result
+    try:
+        result = eval(" ".join([str_x, oper, str_y]))
+        return result.normalize().to_eng_string()
+    except ZeroDivisionError:
+        cache.clear()
+        return "Error"
 
 
 def operations_with_cache():
